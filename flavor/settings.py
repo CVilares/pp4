@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'flavor-blog',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
