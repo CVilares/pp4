@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-cvilares-pp4-qebu75e7v3.us2.codeanyapp.com', 'flavor-blog-8ecb3df13f92.herokuapp.com, 'localhost']
+    '8000-cvilares-pp4-qebu75e7v3.us2.codeanyapp.com', 'flavor-blog-8ecb3df13f92.herokuapp.com', 'localhost']
 
 
 # Application definition
