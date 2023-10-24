@@ -6,7 +6,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Post(models.Model):
     """
-    Database model for Posts including their title, content, author, and more.
+    Database model for Posts including their title, content, author, and more
     """
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
@@ -40,6 +40,9 @@ class Post(models.Model):
         return self.likes.count()        
 
 class Comment(models.Model):
+    """
+    Database model for Comment including post, email,name and more.
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
