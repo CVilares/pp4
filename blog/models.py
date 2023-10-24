@@ -4,15 +4,12 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-class Post(models.model):
- """
- Database model for Posts including their title, content, author, and more.
- """
-"""
-on_delete=models.CASCADE ,check later to keep this or not,
-"""
+class Post(models.Model):
+    """
+    Database model for Posts including their title, content, author, and more.
+    """
     title = models.CharField(max_length=250, unique=True)
-    slug = models.SlugField(max_length=250 unique=True)
+    slug = models.SlugField(max_length=250, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -21,6 +18,7 @@ on_delete=models.CASCADE ,check later to keep this or not,
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+
 
     class Meta:
 
@@ -41,7 +39,7 @@ on_delete=models.CASCADE ,check later to keep this or not,
         """
         return self.likes.count()        
 
-    class Comment(models.Model):
+class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
@@ -59,4 +57,4 @@ on_delete=models.CASCADE ,check later to keep this or not,
         """
         Returns comment with body text and name
         """
-        returnf"Comment{self.body} by {self.name}"    
+        return 'Comment {} by {}'.format(self.body, self.name)    
