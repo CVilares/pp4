@@ -67,3 +67,11 @@ class CommentAdmin(SummernoteModelAdmin):
     Allowing searching by name, email, and body
     """
     search_fields = ['name', 'email', 'body']
+    
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        """
+        Approve user comments method
+        """
+        queryset.update(approved=True)
