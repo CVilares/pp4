@@ -8,11 +8,12 @@ from django_summernote.admin import SummernoteModelAdmin
 Registering the Post model in the admin panel
 """
 @admin.register(Post)
-class PostAdmin(SummernoteModelAdmin):
-
-    """
+"""
     Custom Admin panel configuration for the Post model
     """
+class PostAdmin(SummernoteModelAdmin):
+
+   
 
     """
     Filtering options for the Post list
@@ -40,10 +41,29 @@ class PostAdmin(SummernoteModelAdmin):
     search_fields = ['title', 'content']
 
 
-    @admin.register(Comment)
-class PostAdmin(SummernoteModelAdmin):
+    """
+Registering the Comment model in the admin panel
+"""
+@admin.register(Comment)
 
+"""
+    Custom Admin panel configuration for the Post model
+    """
+class CommentAdmin(SummernoteModelAdmin):
+     
+    """
+    Filtering options for the Comment list
+    """
     list_filter = ('approved', 'created_on')
+    """
+    Enabling the Summernote rich text editor for the 'content' field
+    """
     summernote_fields = ('content')
-    list_display = ('name', 'body', 'post', 'created_on', 'approved') 
+    """
+    Displayed columns in the Comment list view
+    """
+    list_display = ('name', 'body', 'post', 'created_on', 'approved')
+    """
+    Allowing searching by name, email, and body
+    """
     search_fields = ['name', 'email', 'body']
