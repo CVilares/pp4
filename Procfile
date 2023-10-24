@@ -1,1 +1,1 @@
-web: gunicorn flavor-blog.wsgi
+web: gunicorn flavor.wsgi
