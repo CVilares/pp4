@@ -1,12 +1,12 @@
 body {
-    background-color: #F9FAFC;
+    background-color: #ebeef3;
 }
 
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: #de0e3b;
 }
 
 .red-o {
@@ -18,7 +18,7 @@ body {
 }
 
 .light-bg {
-    background-color: #fff;
+    background-color: #fffdfd;
 }
 
 .dark-bg {
@@ -26,7 +26,7 @@ body {
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #9E9E9E;
 }
 
 .card {
@@ -43,7 +43,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #23BBBB;
+    background-color: #aabb23;
 }
 
 .author {
@@ -118,7 +118,7 @@ body {
 }
 
 .link {
-    color: #23BBBB;
+    color: #bb236d;
     text-decoration: none;
 }
 
