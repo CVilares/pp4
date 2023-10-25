@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from .views import IntroView
 from .models import Post
 
 
@@ -37,3 +38,11 @@ class PostDetail(View):
                 "liked": liked
             },
         )
+
+
+class IntroView(View):
+
+    def get(self, request):
+        return render(
+            request,
+            "intro.html")
