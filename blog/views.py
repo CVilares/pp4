@@ -3,8 +3,6 @@ from django.views import generic, View
 from .models import Post
 
 
-
-
 class PostList(generic.ListView):
 
     """
@@ -15,7 +13,13 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
-class PostDetail(View) :
+
+class PostDetail(View):
+
+    """
+    Displays individual post details with comments and user liking status.
+    """
+
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -33,4 +37,4 @@ class PostDetail(View) :
                 "comments": comments,
                 "liked": liked
             }
-        )    
+        )
