@@ -1,19 +1,10 @@
-from django.contrib import admin
-from.models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
+from django.contrib import admin
+from .models import Post, Comment
 
 
-
-"""
-Registering the Post model in the admin panel
-"""
 @admin.register(Post)
-"""
-    Custom Admin panel configuration for the Post model
-    """
 class PostAdmin(SummernoteModelAdmin):
-
-   
 
     """
     Filtering options for the Post list
@@ -41,16 +32,9 @@ class PostAdmin(SummernoteModelAdmin):
     search_fields = ['title', 'content']
 
 
-    """
-Registering the Comment model in the admin panel
-"""
 @admin.register(Comment)
-
-"""
-    Custom Admin panel configuration for the Post model
-    """
 class CommentAdmin(SummernoteModelAdmin):
-     
+
     """
     Filtering options for the Comment list
     """
@@ -67,7 +51,7 @@ class CommentAdmin(SummernoteModelAdmin):
     Allowing searching by name, email, and body
     """
     search_fields = ['name', 'email', 'body']
-    
+
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
