@@ -14,7 +14,7 @@ class PostAdmin(SummernoteModelAdmin):
     """
     Enabling the Summernote rich text editor for the 'content' field
     """
-    summernote_fields = ('content',)
+    summernote_fields = ('content')
 
     """
     Generating slugs based on the title
