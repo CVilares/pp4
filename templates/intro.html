@@ -18,47 +18,58 @@
     <title>Document</title>
     <style>
       .image-container {
-        background-color: black;
+        background-color: white;
         text-align: center;
         padding: 20px 0;
+        
       }
 
       .carousel-item img {
-        max-width: 70%;
-        height: auto;
-        image {
-          margin-left: auto;
-          margin-right: auto;
-          display: block;
-          margin-top: 20px;
-        }
+        max-width: 35%;
+        margin: 0 auto;
+        border-radius: 5%;
+        margin-top: 10%;
+        
       }
     </style>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'intro' %}">Blogs Name</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <body class="d-flex flex-column h-100 main-bg">
+    <!-- Navigation -->
 
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-black" style="background-color: black;">
+  <div class="container">
+    <a class="navbar-brand text-white" href="{% url 'intro' %}">Blogs Name</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav justify-content-center"> <!-- Centraliza os itens horizontalmente -->
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'account_signup' %}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class "nav-link text-white" href="{% url 'account_login' %}">Login</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
 
     <!-- Div for the images below the navigation bar -->
 
@@ -93,7 +104,7 @@
           </div>
           <div class="carousel-item">
             <img
-              src="https://www.teleculinaria.pt/wp-content/uploads/2018/04/bacalhau-com-natas.jpg.webp"
+              src="https://nomadparadise.com/wp-content/uploads/2020/05/mediterranean-food.jpg.webp"
               class="d-block w-100"
               alt="Imagem 2"
             />

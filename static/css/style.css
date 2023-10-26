@@ -26,7 +26,7 @@ body {
 }
 
 .main-bg {
-    background-color: #14cb9c;
+    background-color: white;
 }
 
 .card {
@@ -43,7 +43,8 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #aabb23;
+    background-color: #b12e29;
+    border-radius: 60px;
 }
 
 .author {
@@ -140,3 +141,9 @@ body {
     background: transparent;
     border: none;
 }
+
+.navbar-toggler {
+  color: white !important;
+  border-color: white !important;
+}
+
