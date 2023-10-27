@@ -10,12 +10,10 @@ class PostAdmin(SummernoteModelAdmin):
     Filtering options for the Post list
     """
     list_filter = ('status', 'created_on')
-
     """
     Enabling the Summernote rich text editor for the 'content' field
     """
     summernote_fields = ('content')
-
     """
     Generating slugs based on the title
     """
