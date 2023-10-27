@@ -1,43 +1,72 @@
-{% extends "base.html" %} {% load i18n %} {% block head_title %} {% trans
-"Signup" %} {% endblock head_title %} {% block content %}
-<div
-  class="container"
-  style="background-color: #f3e5d3; padding: 20px; border-radius: 10px"
->
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}
+  {% trans "Signup" %}
+{% endblock head_title %}
+
+{% block content %}
+<style>
+  .background-image {
+    background-image: url('https://img.freepik.com/fotos-gratis/antigo-antigo-fundo-de-textura-da-textura-da-textura-da-madeira-antiga-bonita-espaco-da-copia_1220-1277.jpg?w=1480&t=st=1698365401~exp=1698366001~hmac=6ad4a16197151489ba0477a191ef2ad1982fac49531227714eee01bcbc0379f4');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  
+
+  .signup-content h3, .signup-content p, .signup-content a {
+    color: white; /* White text color */
+  }
+
+  
+</style>
+
+<div class="background-image">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h3 style="font-family: 'Times New Roman', serif">
-        {% trans 'Sign Up:' %}
-      </h3>
+    <!-- Row for header content -->
+    <div class="col-md-8 mt-5 offset-md-2">
+      <!-- Bootstrap column with top margin -->
+      <div class="signup-content">
+        <h3 style="font-family: 'Times New Roman', serif; color: white;">
+          {% trans 'Sign Up:' %}
+        </h3>
+        <!-- Heading for the signup section with-->
 
-      <p style="font-family: 'Times New Roman', serif">
-        {% blocktrans %} If you already registered please
-
-        <a class="link" href="{{ login_url }}">login yourself</a> instead.
-        {% endblocktrans %}
-      </p>
+        <p style="font-family: 'Times New Roman', serif; color:white;">
+          {% blocktrans %}
+          If you're already registered, please
+          <a class="link" href="{{ login_url }}" style="color: #FF4500;">login</a> instead.
+          {% endblocktrans %}
+        </p>
+        <!-- Paragraph with a link to login if already registered  -->
+      </div>
     </div>
   </div>
 
   <div class="row">
+    <!-- Row for signup form -->
     <div class="col-md-8 mt-3 offset-md-2">
+      <!-- Bootstrap column with top margin -->
       <form class="login" method="POST" action="{% url 'account_signup' %}">
-        {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
-        <input
-          type="hidden"
-          name="{{ redirect_field_name }}"
-          value="{{ redirect_field_value }}"
-        />
+        <!-- Form for user signup with POST method -->
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- Form fields, including CSRF token and form data -->
+
+        {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
         {% endif %}
-        <button
-          class="btn btn-signup right"
-          style="
-            background-color: #8b4513;
-            color: #fff;
-            font-family: 'Times New Roman', serif;
-          "
-          type="submit"
-        >
+        <!-- Hidden input for redirect field, if available -->
+
+        <button class="btn btn-signup right" style="background-color: #8B4513; color: #FFF; font-family: 'Times New Roman', serif;" type="submit">
+          <!-- Signup button with custom styles including amarelo torrado and white colors -->
           {% trans 'Sign Up' %} &raquo;
         </button>
       </form>
@@ -45,4 +74,11 @@
     </div>
   </div>
 </div>
+
+
 {% endblock %}
+
+
+
+
+

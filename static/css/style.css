@@ -1,5 +1,6 @@
 body {
     background-color: #ebeef3;
+    
 }
 
 .brand {
@@ -146,4 +147,11 @@ body {
   color: white !important;
   border-color: white !important;
 }
+
+
+ .custom-bg {
+    background-color: black;
+}
+
+
 

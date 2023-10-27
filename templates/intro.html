@@ -15,17 +15,21 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-    <title>Document</title>
+    <title>Blog</title>
     <style>
       .image-container {
         background-color: white;
         text-align: center;
         padding: 20px 0;
+        background-image: url('https://i.pinimg.com/564x/c5/0d/c2/c50dc28857485277561b77e09619dcb3.jpg');
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
         
       }
 
       .carousel-item img {
-        max-width: 35%;
+        max-width: 50%;
         margin: 0 auto;
         border-radius: 5%;
         margin-top: 10%;
@@ -37,36 +41,42 @@
   <body class="d-flex flex-column h-100 main-bg">
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-black" style="background-color: black;">
-  <div class="container">
-    <a class="navbar-brand text-white" href="{% url 'intro' %}">Blogs Name</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav justify-content-center"> <!-- Centraliza os itens horizontalmente -->
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'account_signup' %}">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class "nav-link text-white" href="{% url 'account_login' %}">Login</a>
-        </li>
-        {% endif %}
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">About</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ml-4">
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-white ml-auto" aria-current="page" href="{% url 'intro' %}">FoodBlog</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-white text-center" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
 
 
 
@@ -160,16 +170,19 @@
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
       crossorigin="anonymous"
     ></script>
-    <footer class="footer mt-auto py-3 dark-bg">
-      <div class="container">
-        <p class="m-0 text-center text-black">Cvilares</p>
-        <p class="m-0 text-center text-black">
-          Follow us: <i class="fab fa-facebook-square ms-3"></i>
-          <i class="fab fa-twitter-square ms-3"></i>
-          <i class="fab fa-instagram-square ms-3"></i>
-          <i class="fab fa-youtube-square ms-3"></i>
-        </p>
-      </div>
-    </footer>
+
+    <!-- Footer -->
+<footer class="footer mt-auto py-3 bg-white">
+  <div class="container">
+    <p class="m-0 text-center text-danger">Cvilares</p>
+    <p class="m-0 text-center text-danger">
+      Follow us: <i class="fab fa-facebook-square ms-3 text-danger"></i>
+      <i class="fab fa-twitter-square ms-3 text-danger"></i>
+      <i class="fab fa-instagram-square ms-3 text-danger"></i>
+      <i class="fab fa-youtube-square ms-3 text-danger"></i>
+    </p>
+  </div>
+</footer>
   </body>
 </html>
+
