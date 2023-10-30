@@ -1,6 +1,7 @@
 body {
     background-color: #ebeef3;
-    
+    color: #ebeef3;
+
 }
 
 .brand {
@@ -109,14 +110,14 @@ body {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
+    background-color: #0074D9;
+    color: #0074D9;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: #0056A0;
 }
 
 .link {
@@ -144,14 +145,11 @@ body {
 }
 
 .navbar-toggler {
-  color: white !important;
-  border-color: white !important;
+    color: white !important;
+    border-color: white !important;
 }
 
 
- .custom-bg {
+.custom-bg {
     background-color: black;
 }
-
-
-

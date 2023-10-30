@@ -1,36 +1,79 @@
- {% extends "account/base.html" %} {% load i18n %} {% block head_title %} {% trans "Sign
-In" %} {% endblock %} {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h3>{% trans 'Sign In:' %}</h3>
+{% extends "base.html" %}
+{% load i18n %}
 
-      <p>
-        {% blocktrans %} If yoo dont have an account
+{% block head_title %}
+  {% trans "Sign In" %}
+{% endblock head_title %}
 
-        <a class="link" href="{{ signup_url }}">register yourself</a> instead.
-        {% endblocktrans %}
-      </p>
-    </div>
-  </div>
+{% block content %}
+  <style>
+    /* Style for the content container */
+    .content-container {
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+    /* Style for the heading */
+    h1 {
+      font-size: 24px;
+      color: #333; /* Your preferred text color */
+    }
+
+    /* Style for the paragraph */
+    p {
+      font-size: 16px;
+      color: #666; /* Your preferred text color */
+    }
+
+    /* Style for the form */
+    form {
+      margin-top: 20px;
+    }
+
+    /* Style for the submit button */
+    button {
+      background-color: #0074D9; /* Your preferred button background color (blue) */
+      color: #fff; /* Your preferred button text color (white) */
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Style for the submit button on hover */
+    button:hover {
+      background-color: #0056A0; /* Your preferred button background color on hover (darker blue) */
+    }
+  </style>
+
+  <div class="content-container">
+    <h1>{% trans 'Sign In:' %}</h1>
+
+    <p>
+      {% blocktrans %}
+      If you don't have an account,
+      <a class="link" href="{{ signup_url }}">register yourself</a> instead.
+      {% endblocktrans %}
+    </p>
+
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
         <input
           type="hidden"
           name="{{ redirect_field_name }}"
           value="{{ redirect_field_value }}"
         />
-        {% endif %}
-        <button class="btn btn-signup right" type="submit">
-          {% trans 'Sign In' %}
-        </button>
-      </form>
-      <br />
-    </div>
+      {% endif %}
+      <button class="btn btn-signup right" type="submit">
+        {% trans 'Sign In' %}
+      </button>
+    </form>
   </div>
-</div>
-
 {% endblock %}
+

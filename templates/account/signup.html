@@ -6,79 +6,93 @@
 {% endblock head_title %}
 
 {% block content %}
-<style>
-  .background-image {
-    background-image: url('https://img.freepik.com/fotos-gratis/antigo-antigo-fundo-de-textura-da-textura-da-textura-da-madeira-antiga-bonita-espaco-da-copia_1220-1277.jpg?w=1480&t=st=1698365401~exp=1698366001~hmac=6ad4a16197151489ba0477a191ef2ad1982fac49531227714eee01bcbc0379f4');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  <style>
+    
+    /* Style for the content within the background image */
+    .content-container {
+      text-align: center;
+    }
 
-  
+    .signup-content {
+      color: white;
+    }
 
-  .signup-content h3, .signup-content p, .signup-content a {
-    color: white; /* White text color */
-  }
+    .signup-content h3 {
+      font-family: 'Times New Roman', serif;
+      color: white;
+    }
 
-  
-</style>
+    .signup-content p {
+      font-family: 'Times New Roman', serif;
+      color: white;
+    }
 
-<div class="background-image">
-  <div class="row">
-    <!-- Row for header content -->
-    <div class="col-md-8 mt-5 offset-md-2">
-      <!-- Bootstrap column with top margin -->
-      <div class="signup-content">
-        <h3 style="font-family: 'Times New Roman', serif; color: white;">
-          {% trans 'Sign Up:' %}
-        </h3>
-        <!-- Heading for the signup section with-->
+    .signup-content a {
+      color: #FF4500; /* Custom link color */
+    }
 
-        <p style="font-family: 'Times New Roman', serif; color:white;">
-          {% blocktrans %}
-          If you're already registered, please
-          <a class="link" href="{{ login_url }}" style="color: #FF4500;">login</a> instead.
-          {% endblocktrans %}
-        </p>
-        <!-- Paragraph with a link to login if already registered  -->
+    /* Style for the signup form */
+    form {
+      margin-top: 20px;
+    }
+
+    /* Style for the signup button */
+    button {
+      background-color: #6f032b; /* Your preferred button background color */
+      color: #fff; /* Your preferred button text color */
+      font-family: 'Times New Roman', serif;
+    }
+
+    /* Style for the signup button on hover */
+    button:hover {
+      background-color: #6f032b; /* Keep the same color on hover or customize it */
+    }
+  </style>
+
+  <div class="background-image">
+    <div class="row">
+      <!-- Row for header content -->
+      <div class="col-md-8 mt-5 offset-md-2">
+        <!-- Bootstrap column with top margin -->
+        <div class="signup-content">
+          <h3>
+            {% trans 'Sign Up:' %}
+          </h3>
+          <!-- Heading for the signup section -->
+
+          <p>
+            {% blocktrans %}
+            If you're already registered, please
+            <a class="link" href="{{ login_url }}">login</a> instead.
+            {% endblocktrans %}
+          </p>
+          <!-- Paragraph with a link to login if already registered -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Row for signup form -->
+      <div class="col-md-8 mt-3 offset-md-2">
+        <!-- Bootstrap column with top margin -->
+        <form class="login" method="POST" action="{% url 'account_signup' %}">
+          <!-- Form for user signup with POST method -->
+
+          {% csrf_token %}
+          {{ form.as_p }}
+          <!-- Form fields, including CSRF token and form data -->
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+          {% endif %}
+          <!-- Hidden input for redirect field, if available -->
+
+          <button class="btn btn-signup right" type="submit">
+            {% trans 'Sign Up' %} &raquo;
+          </button>
+        </form>
+        <br />
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <!-- Row for signup form -->
-    <div class="col-md-8 mt-3 offset-md-2">
-      <!-- Bootstrap column with top margin -->
-      <form class="login" method="POST" action="{% url 'account_signup' %}">
-        <!-- Form for user signup with POST method -->
-
-        {% csrf_token %}
-        {{ form.as_p }}
-        <!-- Form fields, including CSRF token and form data -->
-
-        {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
-        {% endif %}
-        <!-- Hidden input for redirect field, if available -->
-
-        <button class="btn btn-signup right" style="background-color: #8B4513; color: #FFF; font-family: 'Times New Roman', serif;" type="submit">
-          <!-- Signup button with custom styles including amarelo torrado and white colors -->
-          {% trans 'Sign Up' %} &raquo;
-        </button>
-      </form>
-      <br />
-    </div>
-  </div>
-</div>
-
-
 {% endblock %}
-
-
-
-
-
