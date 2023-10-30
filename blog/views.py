@@ -28,6 +28,7 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+        number_of_likes = post.number_of_likes()
 
         return render(
             request,
@@ -78,9 +79,6 @@ Define a class for handling the "like" functionality for a post.
 """
 class PostLike(View):
     
-    """
-     POST method for handling post liking
-    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():

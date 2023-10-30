@@ -1,14 +1,11 @@
-# Sporting Portugal Quiz
+# Foodblog
 
-Welcome to the Sporting Clube de Portugal Quiz! This quiz will test your knowledge about one of the most beloved sports clubs in Portugal. Get ready to dive into the rich history, achievements, and iconic moments of Sporting Clube de Portugal.
-Are you a die-hard fan who knows everything about the club, or are you just starting to explore the world of Sporting Portugal? No matter your level of expertise, this quiz is designed to challenge and entertain you.
-You will be presented with a series of questions covering various aspects of Sporting Clube de Portugal, including its presidents, historic achievements, iconic players, and fierce rivalries. Each question will have multiple-choice options, and it's up to you to select the correct answer.
-![responsive image](/assets/images/rsp.png)
+This website is currently under construction. Please check back soon for updates and new content. Thank you for your patience!"
 
 
 ## Demo
 
-Welcome to [Sporting Quiz](https://cvilares.github.io/quizJavascript/)
+Welcome to [Sporting Quiz]()
 
 - - -
 
@@ -75,58 +72,7 @@ Success and Failure Pages: The quiz incorporates separate pages for success (con
 
 ### Features
 
-- Displaying Questions:
-
-The displayQuestion function retrieves the current question from the questions array and displays it on the screen.
-
-- Handling User Answers:
-
-The checkAnswer function is called when the user selects an answer. It compares the user's answer with the correct answer for the current question and updates the score accordingly.
-If the user's answer is correct, the score is incremented, and a message is logged to the console.
-If the user's answer is wrong, the wrong answer count is incremented. If the count reaches 3, the showDisappointment function is called to redirect the user to the "end.html" page.
-The score display is updated using the updateScore function.
-
-- Moving to the Next Question:
-
-The nextQuestion function increments the currentPos variable to move to the next question. If the end of the questions array is reached, it wraps around to the first question.
-
-- Checking Total Score:
-
-The checkTotalScore function checks if the user's total score reaches 5. If it does, the showCongratulations function is called to redirect the user to the "congratulations.html" page.
-
-- Updating Score Display:
-
-The updateScore function retrieves the score element from the HTML document and updates its content with the current score.
-
-![Reactions](/assets/images/sum.png)
-![Reactions](/assets/images/sdois.png)
-
-- Displaying Random Quote:
-
-The displayRandomQuote function selects a random quote from the quotes array and displays it on the screen. It includes a random quote and the corresponding character.
-
-![Random Quote](/assets/images/random.png)
-
-- Setting Up Answer Listeners:
-
-The setupAnswerListeners function adds event listeners to the answer elements. When an answer is clicked, the checkAnswer function is called with the corresponding answer index.
-
-- Starting the Quiz:
-
-The startQuiz function is called initially to begin the quiz. It displays the first question, sets up the answer listeners, and displays a random quote.
-
-- Showing Congratulations and Disappointment Pages with a Try Again button that leads you to the start main page.
-
-The showCongratulations function redirects the user to the "congratulations.html" page when the total score reaches 5.
-The showDisappointment function redirects the user to the "end.html" page when the wrong answer count reaches 3.
-![Reactions](/assets/images/congs.png)
-![Reactions](/assets/images/end.png)
-
-
-
-- Rules button that leads you to the quiz rules and to start game button.
-![Reactions](/assets/images/rules.png)
-![Reactions](/assets/images/ruless.png)
+- 
 
 - - -
 
@@ -134,18 +80,7 @@ The showDisappointment function redirects the user to the "end.html" page when t
 
 
 
--  Timer: Implement a timer to add a time constraint for answering each question. This adds an element of urgency and can make the quiz more challenging.
-
-
-- Progress Bar: Add a visual progress bar to indicate how far the user is in the quiz. It helps provide a sense of completion and motivates users to continue.
-
-- High Scores: Implement a high score feature where users can save their scores and compare them with other players. This can encourage competition and replayability.
-
--  Score Multipliers: Assign score multipliers for consecutive correct answers. For example, if the user answers two questions correctly in a row, their score for the third question could be doubled.
-
-- Hint System: Provide users with the option to request hints for difficult questions. You can display additional information or eliminate one or more incorrect answer choices.
-
-- Share Results: Enable users to share their quiz results on social media platforms or via email. This can encourage others to take the quiz and increase its reach.
+- 
 
 - - -
 
